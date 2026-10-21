@@ -1,0 +1,12 @@
+{
+  "name": "چیکاچوب ایرانیان",
+  "short_name": "چیکاچوب",
+  "description": "فروشگاه تخت‌های MDF و پارچه‌ای چیکاچوب ایرانیان",
+  "lang": "fa",
+  "dir": "rtl",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#fbfaf8",
+  "theme_color": "#65452d"
+}
