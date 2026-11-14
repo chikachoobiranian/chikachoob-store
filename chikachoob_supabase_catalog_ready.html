@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#65452d">
+<title>چیکاچوب ایرانیان</title>
+<style>
+:root{--brown:#65452d;--brown2:#765438;--cream:#f7f1e8;--cream2:#efe4d5;--line:#e5d8c8;--ink:#30271f;--muted:#817366}
+*{box-sizing:border-box}body{margin:0;background:#fbf9f5;color:var(--ink);font-family:Tahoma,Arial,sans-serif;line-height:1.8}
+header{background:linear-gradient(120deg,#39271b,#765438);color:#fff;padding:22px 16px 28px}
+.wrap{max-width:1050px;margin:auto}.brand{font-size:23px;font-weight:bold}.tag{font-size:13px;color:#ead9c5}
+.headerline{display:flex;align-items:center;justify-content:space-between;gap:12px}
+main{padding:24px 16px 50px}.intro{text-align:center;color:#f5eadd;margin:24px auto 18px;max-width:650px}
+.intro h1{font-size:clamp(23px,4vw,34px);margin:0 0 8px}.intro p{margin:0;color:#ead9c5}
+.home-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px;max-width:760px;margin:24px auto 0}
+.menu-card{display:flex;align-items:center;justify-content:space-between;gap:10px;min-height:74px;padding:17px 18px;border:1px solid #d9c4a8;border-radius:15px;background:#fffaf3;color:var(--brown);font-size:17px;font-weight:bold;text-decoration:none;box-shadow:0 4px 14px #24170e12}
+.menu-card .ico{font-size:25px}.menu-card:active{transform:scale(.99);background:var(--cream2)}
+.page{display:none}.page.active{display:block}.hidden{display:none!important}.back{border:1px solid #b99a76;background:transparent;color:var(--brown);border-radius:25px;padding:8px 15px;font:inherit;margin-bottom:16px}
+.page-title{font-size:25px;margin:0 0 4px;color:var(--brown)}.muted{color:var(--muted);font-size:13px;margin:0 0 16px}
+.subcats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:16px 0 22px}
+.subcat{border:1px solid var(--line);background:#f6eee3;color:#65452d;border-radius:12px;padding:12px;text-align:center;font:inherit;font-weight:bold;cursor:pointer}
+.subcat.active{background:var(--brown);color:white;border-color:var(--brown)}
+.product-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px}
+.product{background:white;border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.photo{height:165px;background:linear-gradient(135deg,#e7d8c6,#f7f0e7);display:flex;align-items:center;justify-content:center;text-align:center;padding:12px;color:#795b3f;font-weight:bold}
+.photo img{width:100%;height:100%;object-fit:cover}
+.pbody{padding:12px}.pbody h3{font-size:16px;margin:0 0 4px}.meta{font-size:12px;color:var(--muted)}.price{color:var(--brown);font-weight:bold;margin-top:7px}
+.empty{background:#f7f0e7;border-radius:12px;padding:18px;text-align:center;color:#72583f}
+.info-box{border:1px solid var(--line);background:#fff;border-radius:14px;padding:18px;margin-top:12px}
+footer{text-align:center;color:var(--muted);font-size:12px;padding:20px}
+@media(max-width:650px){.product-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.photo{height:130px}}
+@media(max-width:420px){.home-grid,.subcats{grid-template-columns:1fr}.menu-card{min-height:65px}.product-grid{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+ <div class="headerline"><div><div class="brand">✦ چیکاچوب ایرانیان</div><div class="tag">تولید و پخش محصولات MDF و پارچه‌ای</div></div></div>
+ <div class="intro"><h1>به فروشگاه چیکاچوب خوش آمدید</h1><p>برای دیدن محصولات یا آشنایی با خدمات، یکی از بخش‌ها را انتخاب کنید.</p></div>
+ <nav class="home-grid" id="homeMenu">
+  <a class="menu-card" href="#products" data-page="products"><span>مشاهده محصولات</span><span class="ico">🛏️</span></a>
+  <a class="menu-card" href="#partners" data-page="partners"><span>همکاران</span><span class="ico">🤝</span></a>
+  <a class="menu-card" href="#branches" data-page="branches"><span>نمایندگی‌ها</span><span class="ico">🏬</span></a>
+  <a class="menu-card" href="#testimonials" data-page="testimonials"><span>رضایت مشتری</span><span class="ico">⭐</span></a>
+  <a class="menu-card" href="#about" data-page="about"><span>درباره ما</span><span class="ico">✦</span></a>
+  <a class="menu-card" href="#contact" data-page="contact"><span>تماس با ما</span><span class="ico">☎️</span></a>
+  <a class="menu-card" href="#guide" data-page="guide"><span>راهنمای خرید و ارسال</span><span class="ico">🚚</span></a>
+ </nav>
+</div></header>
+<main class="wrap">
+<section class="page" id="page-products">
+ <button class="back" type="button">← بازگشت به منوی اصلی</button>
+ <h2 class="page-title">دسته‌بندی محصولات</h2><p class="muted">یک گروه را انتخاب کنید تا زیرمجموعه‌ها و محصولات همان گروه نمایش داده شود.</p>
+ <div class="subcats" id="categoryTiles"></div>
+ <div id="subcategoryArea" class="hidden"></div>
+ <div id="productGrid" class="product-grid"></div>
+</section>
+<section class="page" id="page-partners"><button class="back">← بازگشت به منوی اصلی</button><h2 class="page-title">همکاران چیکاچوب</h2><div class="info-box">برای دریافت شرایط همکاری و قیمت همکاران، با مجموعه چیکاچوب تماس بگیرید.</div></section>
+<section class="page" id="page-branches"><button class="back">← بازگشت به منوی اصلی</button><h2 class="page-title">نمایندگی‌ها</h2><div class="info-box">اطلاعات نمایندگی‌های فعال به‌زودی در این بخش نمایش داده می‌شود.</div></section>
+<section class="page" id="page-testimonials"><button class="back">← بازگشت به منوی اصلی</button><h2 class="page-title">رضایت مشتریان</h2><div class="info-box">تصاویر و ویدئوهای مشتریان پس از دریافت و تأیید اجازه انتشار، در این قسمت قرار می‌گیرد.</div></section>
+<section class="page" id="page-about"><button class="back">← بازگشت به منوی اصلی</button><h2 class="page-title">درباره چیکاچوب</h2><div class="info-box">چیکاچوب ایرانیان؛ تولید و پخش تخت‌های MDF و پارچه‌ای و محصولات مرتبط با اتاق خواب.</div></section>
+<section class="page" id="page-contact"><button class="back">← بازگشت به منوی اصلی</button><h2 class="page-title">تماس با ما</h2><div class="info-box">شماره تماس و راه‌های ارتباطی رسمی مجموعه در این بخش درج خواهد شد.</div></section>
+<section class="page" id="page-guide"><button class="back">← بازگشت به منوی اصلی</button><h2 class="page-title">راهنمای خرید و ارسال</h2><div class="info-box">محصول را انتخاب کنید و برای اطلاع از قیمت نهایی، رنگ، سایز و هزینه ارسال با مجموعه هماهنگ شوید. هزینه ارسال جداگانه محاسبه می‌شود.</div></section>
+</main>
+<footer>چیکاچوب ایرانیان</footer>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+const SUPABASE_URL='https://hvnlmrastgtqnykconcm.supabase.co';
+const SUPABASE_KEY='sb_publishable_E9xpF5HDNW-bjJt5CtzKkg_ilzJ-KpO';
+const supabaseClient=window.supabase.createClient(SUPABASE_URL,SUPABASE_KEY);
+let groups=[];
+let databaseProducts=[];
+async function loadStoreData(){
+ const catResult=await supabaseClient.from('categories').select('id,name,icon,is_active').eq('is_active',true).order('name');
+ if(catResult.error){console.error(catResult.error);$('categoryTiles').innerHTML='<div class="empty">دریافت دسته‌بندی‌ها انجام نشد. اتصال یا دسترسی خواندن را بررسی کنید.</div>';return}
+ groups=(catResult.data||[]).map(c=>({id:c.id,name:c.name,icon:c.icon||'📦'}));
+ const prodResult=await supabaseClient.from('products').select('id,name,category_id,price,image_url,description,is_active').eq('is_active',true).order('created_at',{ascending:false});
+ if(prodResult.error){console.error(prodResult.error);databaseProducts=[]}else{databaseProducts=prodResult.data||[]}
+ renderGroups();
+}
+let chosenGroup='',chosenSub='';
+const $=id=>document.getElementById(id);
+function getProducts(){return databaseProducts}
+function showPage(name){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));$('page-'+name).classList.add('active');$('homeMenu').style.display='none';if(name==='products')renderGroups();window.scrollTo({top:0,behavior:'smooth'})}
+function goHome(){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));$('homeMenu').style.display='grid';window.scrollTo({top:0,behavior:'smooth'})}
+document.querySelectorAll('[data-page]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();showPage(a.dataset.page)}));
+document.querySelectorAll('.back').forEach(b=>b.addEventListener('click',goHome));
+
+function renderGroups(){
+  $('categoryTiles').innerHTML=groups.map((g,i)=>`<button class="subcat ${chosenGroup===g.name?'active':''}" data-group="${i}">${g.icon} ${g.name}</button>`).join('');
+  $('categoryTiles').querySelectorAll('[data-group]').forEach(b=>b.onclick=()=>{
+    chosenGroup=groups[Number(b.dataset.group)].name;
+    chosenSub=chosenGroup;
+    renderGroups();
+  });
+  const g=groups.find(x=>x.name===chosenGroup);
+  $('subcategoryArea').innerHTML=g?`<h3 class="page-title">${g.name}</h3>`:'';
+  $('subcategoryArea').classList.toggle('hidden',!g);
+  renderProducts();
+}
+function renderProducts(){
+  const box=$('productGrid');
+  if(!chosenGroup){box.innerHTML='';return}
+  const selectedGroup=groups.find(g=>g.name===chosenGroup);
+  const ps=getProducts().filter(p=>String(p.category_id)===String(selectedGroup?.id));
+  if(!ps.length){
+    box.innerHTML='<div class="empty" style="grid-column:1/-1">هنوز محصولی در این دسته ثبت نشده است.</div>';
+    return;
+  }
+  box.innerHTML=ps.map(p=>`<article class="product"><div class="photo">${p.image_url?`<img src="${String(p.image_url).replace(/"/g,'&quot;')}" alt="">`:'تصویر محصول'}</div><div class="pbody"><h3>${p.name||'محصول چیکاچوب'}</h3><div class="meta">${selectedGroup.name}</div><div class="price">${p.price?Number(p.price).toLocaleString('fa-IR')+' تومان':'برای اطلاع از قیمت تماس بگیرید'}</div></div></article>`).join('');
+}
+loadStoreData();
+</script>
+</body></html>
