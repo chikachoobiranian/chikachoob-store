@@ -1,14 +1,18 @@
-const CACHE_NAME = 'chikachoob-shell-v1';
-const FILES = ['./', './index.html', './manifest.webmanifest'];
 self.addEventListener('install', event => {
-  event.waitUntil(caches.open(CACHE_NAME).then(cache => cache.addAll(FILES)));
   self.skipWaiting();
 });
+
 self.addEventListener('activate', event => {
-  event.waitUntil(caches.keys().then(keys => Promise.all(keys.filter(k => k !== CACHE_NAME).map(k => caches.delete(k)))));
-  self.clients.claim();
+  event.waitUntil(
+    (async () => {
+      const keys = await caches.keys();
+      await Promise.all(keys.map(key => caches.delete(key)));
+      await self.clients.claim();
+    })()
+  );
 });
+
 self.addEventListener('fetch', event => {
   if (event.request.method !== 'GET') return;
-  event.respondWith(caches.match(event.request).then(cached => cached || fetch(event.request)));
+  event.respondWith(fetch(event.request));
 });
